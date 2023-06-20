@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView tvHelloWorld = findViewById(R.id.tvHelloWorld);
-        tvHelloWorld.setText("Assalamualaikum");
+        tvHelloWorld.setText("Testingttt");
     }
 }
