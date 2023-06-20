@@ -18,7 +18,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     /**
      * Create ViewHolder class to bind list item view
      */
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         public TextView tvName;
         public TextView tvRating;
@@ -30,11 +30,19 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvRating = (TextView) itemView.findViewById(R.id.tvRating);
             tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+
+            itemView.setOnLongClickListener(this);
+        }
+        @Override
+        public boolean onLongClick(View view) {
+            currentPos = getAdapterPosition(); //key point, record the position here
+            return false;
         }
     }
 
-    private List<Game> mListData;   // list of book objects
-    private Context mContext;       // activity context
+    private List<Game> mListData;   // list of game objects
+    private Context mContext;
+    private int currentPos;// activity context
 
     public GameAdapter(Context context, List<Game> listData){
         mListData = listData;
@@ -71,5 +79,11 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
         return mListData.size();
     }
 
+    public Game getSelectedItem(){
+        if(currentPos>= 0 && mListData != null && currentPos<mListData.size()){
+            return mListData.get(currentPos);
+        }
+        return null;
+    }
 
 }

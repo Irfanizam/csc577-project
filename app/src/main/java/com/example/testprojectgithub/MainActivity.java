@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         btnGameList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // forward user to BookListActivity
+                // forward user to GameListActivity
                 Intent intent = new Intent(context, GameListActivity.class);
                 startActivity(intent);
             }
