@@ -52,10 +52,10 @@ public class GameListActivity extends AppCompatActivity {
                 Log.d("MyApp:", "Response: " + response.raw().toString());
 
                 // Get list of book object from response
-                List<Game> books = response.body();
+                List<Game> games = response.body();
 
                 // initialize adapter
-                GameAdapter adapter = new GameAdapter(context, books);
+                GameAdapter adapter = new GameAdapter(context, games);
 
                 // set adapter to the RecyclerView
                 gameList.setAdapter(adapter);
@@ -76,6 +76,5 @@ public class GameListActivity extends AppCompatActivity {
             }
         });
     }
-    }
-
 }
+
