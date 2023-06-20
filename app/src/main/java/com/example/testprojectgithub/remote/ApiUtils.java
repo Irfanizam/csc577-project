@@ -3,7 +3,7 @@ package com.example.testprojectgithub.remote;
 
 public class ApiUtils
 {
-    public static final String BASE_URL = "https://https://csc577-nik.000webhostapp.com";
+    public static final String BASE_URL = "https://csc577-nik.000webhostapp.com/project/";
 
     public static UserService getUserService()
     {

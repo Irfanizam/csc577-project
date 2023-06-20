@@ -14,6 +14,7 @@ import com.example.testprojectgithub.model.SharedPrefManager;
 import com.example.testprojectgithub.model.User;
 import com.example.testprojectgithub.remote.ApiUtils;
 import com.example.testprojectgithub.remote.UserService;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -115,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void displayToast(String message)
     {
-        Toast.makeText(this, message, Toast.LENGTH_LONG.show());
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-    if(response)
 }
