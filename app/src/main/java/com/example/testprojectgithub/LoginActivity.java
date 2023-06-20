@@ -2,6 +2,7 @@ package com.example.testprojectgithub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.testprojectgithub.model.ErrorResponse;
+import com.example.testprojectgithub.model.SharedPrefManager;
 import com.example.testprojectgithub.model.User;
 import com.example.testprojectgithub.remote.ApiUtils;
 import com.example.testprojectgithub.remote.UserService;
@@ -30,6 +32,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        if (SharedPrefManager.getInstance(this).isLoggedIn())
+        {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -77,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                     {
                         displayToast("Login Successful");
                         displayToast("Token: " + user.getToken());
+                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }
                     else if (response.errorBody() != null)
                     {
@@ -106,4 +117,5 @@ public class LoginActivity extends AppCompatActivity {
     {
         Toast.makeText(this, message, Toast.LENGTH_LONG.show());
     }
+    if(response)
 }

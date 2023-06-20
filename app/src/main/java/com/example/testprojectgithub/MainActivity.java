@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.testprojectgithub.model.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void doLogut(View view)
+    {
+        SharedPrefManager.getInstance(getApplicationContext().logout());
+        Toast.k
     }
 }
