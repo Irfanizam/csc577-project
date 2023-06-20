@@ -8,5 +8,7 @@ import retrofit2.http.POST;
 
 public interface UserService
 {
-
+    @FormUrlEncoded
+    @POST("api/users/login")
+    Call<User> login(@Field("username") String username, @Field("password") String password);
 }
