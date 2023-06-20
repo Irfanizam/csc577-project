@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.testprojectgithub.model.ErrorResponse;
 import com.example.testprojectgithub.model.User;
 import com.example.testprojectgithub.remote.ApiUtils;
 import com.example.testprojectgithub.remote.UserService;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,14 +72,38 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 if(response.isSuccessful())
                 {
-                    User user = (user);
+                    User user = (User) response.body();
+                    if(user.getToken() !=null)
+                    {
+                        displayToast("Login Successful");
+                        displayToast("Token: " + user.getToken());
+                    }
+                    else if (response.errorBody() != null)
+                    {
+                        String errorResp = null;
+                        try
+                        {
+                            errorResp = response.errorBody().string();
+                        }
+                        catch (IOException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        ErrorResponse e = new Gson().fromJson(errorResp, ErrorResponse.class);
+                        displayToast(e.getError().getMessage());
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-
+                 displayToast("Error connecting to server.");
+                 displayToast(t.getMessage());
             }
-        })
+        });
+    }
+    public void displayToast(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_LONG.show());
     }
 }
