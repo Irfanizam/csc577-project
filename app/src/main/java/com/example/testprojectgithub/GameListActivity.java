@@ -1,8 +1,13 @@
 package com.example.testprojectgithub;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +33,7 @@ public class GameListActivity extends AppCompatActivity {
     GameService gameService;
     Context context;
     RecyclerView gameList;
+    GameAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -35,13 +41,15 @@ public class GameListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_list);
         context = this; // get current activity context
 
-        // get reference to the RecyclerView bookList
+        // get reference to the RecyclerView gameList
         gameList = findViewById(R.id.gameList);
+        // register for context menu
+        registerForContextMenu(gameList);
 
         // get user info from SharedPreferences
         User user = SharedPrefManager.getInstance(getApplicationContext()).getUser();
 
-        // get book service instance
+        // get game service instance
         gameService = ApiUtils.getGameService();
 
         // execute the call. send the user token when sending the query
@@ -51,11 +59,11 @@ public class GameListActivity extends AppCompatActivity {
                 // for debug purpose
                 Log.d("MyApp:", "Response: " + response.raw().toString());
 
-                // Get list of book object from response
+                // Get list of game object from response
                 List<Game> games = response.body();
 
                 // initialize adapter
-                GameAdapter adapter = new GameAdapter(context, games);
+                adapter = new GameAdapter(context, games);
 
                 // set adapter to the RecyclerView
                 gameList.setAdapter(adapter);
@@ -76,5 +84,29 @@ public class GameListActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.game_context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        Game selectedGame = adapter.getSelectedItem();
+        Log.d("MyApp", "selected "+selectedGame.toString());
+        switch (item.getItemId()) {
+            case R.id.menu_details://should match the id in the context menu file
+                doViewDetails(selectedGame);
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    private void doViewDetails(Game selectedGame) {
+        Log.d("MyApp:", "viewing details "+ selectedGame.toString());
+        Intent intent = new Intent(context, GameDetailActivity.class);
+        intent.putExtra("game_id", selectedGame.getIdGame());
+        startActivity(intent);
+    }
+
 }
 
