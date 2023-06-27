@@ -14,7 +14,7 @@ import com.example.testprojectgithub.model.User;
 import com.example.testprojectgithub.remote.ApiUtils;
 import com.example.testprojectgithub.remote.GameService;
 
-import java.util.Date;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,7 +53,7 @@ public class GameDetailActivity extends AppCompatActivity {
                 TextView tvName = findViewById(R.id.tvName);
                 TextView tvDescription = findViewById(R.id.tvDescription);
                 TextView tvRating = findViewById(R.id.tvRating);
-//                TextView tvReleaseDate = findViewById(R.id.tvReleaseDate);
+                TextView tvReleaseDate = findViewById(R.id.tvReleaseDate);
 
 
 
@@ -61,7 +61,7 @@ public class GameDetailActivity extends AppCompatActivity {
                 tvName.setText(game.getGameName());
                 tvDescription.setText(game.getGameDescription());
                 tvRating.setText(game.getGameRating());
-//               tvReleaseDate.setDate(game.getDate());
+                tvReleaseDate.setText(game.getReleaseDate());
             }
 
             @Override

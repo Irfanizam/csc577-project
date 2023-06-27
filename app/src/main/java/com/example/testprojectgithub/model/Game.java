@@ -1,24 +1,22 @@
 package com.example.testprojectgithub.model;
 
-import java.util.Date;
-
 public class Game {
     private int idGame;
     private String gameName;
     private String gameDescription;
     private String gameRating;
-    private Date date;
+    private String releaseDate;
 
     public Game(){
 
     }
 
-    public Game(int idGame, String gameName, String gameDescription, String gameRating, Date date) {
+    public Game(int idGame, String gameName, String gameDescription, String gameRating, String releaseDate) {
         this.idGame = idGame;
         this.gameName = gameName;
         this.gameDescription = gameDescription;
         this.gameRating = gameRating;
-        this.date = date;
+        this.releaseDate = releaseDate;
     }
 
     public int getIdGame() {
@@ -53,12 +51,12 @@ public class Game {
         this.gameRating = gameRating;
     }
 
-    public Date getDate() {
-        return date;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     @Override
@@ -68,7 +66,7 @@ public class Game {
                 ", gameName='" + gameName + '\'' +
                 ", gameDescription='" + gameDescription + '\'' +
                 ", gameRating='" + gameRating + '\'' +
-                ", date=" + date +
+                ", =" + releaseDate +
                 '}';
     }
 }
