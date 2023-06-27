@@ -21,6 +21,7 @@ import com.example.testprojectgithub.model.User;
 import com.example.testprojectgithub.remote.ApiUtils;
 import com.example.testprojectgithub.remote.GameService;
 import com.example.testprojectgithub.model.SharedPrefManager;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class GameListActivity extends AppCompatActivity {
                 DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(gameList.getContext(),
                         DividerItemDecoration.VERTICAL);
                 gameList.addItemDecoration(dividerItemDecoration);
+
             }
 
             @Override
@@ -83,6 +85,18 @@ public class GameListActivity extends AppCompatActivity {
                 Log.e("MyApp:", t.getMessage());
             }
         });
+
+        // action handler for Add Book floating button
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+        // forward user to NewGameActivity
+                Intent intent = new Intent(context, NewGameActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
