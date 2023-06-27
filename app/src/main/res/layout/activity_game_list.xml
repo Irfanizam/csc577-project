@@ -21,6 +21,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:contentDescription="Add New Book"
+        android:contentDescription="Add New Game"
         android:src="@drawable/ic_baseline_add_24" />
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.testprojectgithub.remote;
 
+import com.example.testprojectgithub.model.DeleteResponse;
 import com.example.testprojectgithub.model.Game;
 
 import java.util.List;
@@ -20,10 +21,17 @@ public interface GameService {
     Call<Game> getGame(@Header("api-key") String api_key, @Path("id") int id);
 
     /**
-     * Add game by sending a single Book JSON
+     * Add game by sending a single Game JSON
      * @return game object
      */
     @POST("api/game")
     Call<Game> addGame(@Header ("api-key") String apiKey, @Body Game game);
 
+
+    /**
+     * Delete game based on the id
+     * @return DeleteResponse object
+     */
+    @POST("api/game/delete/{id}")
+    Call<DeleteResponse> deleteGame(@Header ("api-key") String apiKey, @Path("id") int id);
 }
