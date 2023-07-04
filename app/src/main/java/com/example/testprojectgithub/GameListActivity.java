@@ -168,8 +168,20 @@ public class GameListActivity extends AppCompatActivity {
             case R.id.menu_delete:
                 doDeleteGame(selectedGame);
                 break;
+            case R.id.menu_update://should match the id in the context menu file
+                doUpdate(selectedGame);
+                break;
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void doUpdate(Game selectedGame) {
+// for debugging purpose
+        Log.d("MyApp:", "launching update activity for "+selectedGame.toString());
+// launch UpdateGameActivity and pass the book id
+        Intent intent = new Intent(context, UpdateGameActivity.class);
+        intent.putExtra("game_id", selectedGame.getIdGame());
+        startActivity(intent);
     }
 
     private void doViewDetails(Game selectedGame) {

@@ -27,6 +27,8 @@ public interface GameService {
     @POST("api/game")
     Call<Game> addGame(@Header ("api-key") String apiKey, @Body Game game);
 
+    @POST("api/game/update")
+    Call<Game> updateGame(@Header ("api-key") String apiKey, @Body Game game);
 
     /**
      * Delete game based on the id
