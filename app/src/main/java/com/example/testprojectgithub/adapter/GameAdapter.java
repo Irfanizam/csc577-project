@@ -70,7 +70,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
         // bind data to the view holder
         Game m = mListData.get(position);
         holder.tvName.setText(m.getGameName());
-        holder.tvRating.setText(m.getGameRating());
+        holder.tvRating.setText("Rating : " + m.getGameRating());
         holder.tvDescription.setText(m.getGameDescription());
     }
 
