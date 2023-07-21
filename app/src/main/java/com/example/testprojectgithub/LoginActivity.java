@@ -2,6 +2,7 @@ package com.example.testprojectgithub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText edtUsername;
     EditText edtPassword;
-    Button btnLogin;
+    Button btnLogin,btnRegister;
+    Context context;
 
     UserService userService;
     @Override
@@ -42,6 +44,11 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
+
+
+
+
 
         userService = ApiUtils.getUserService();
 
@@ -57,6 +64,28 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        //For add new user
+//        btnRegister.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                //forward user to NewUserActivity
+//                Intent intent = new Intent(LoginActivity.this, NewUserActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+        // forward user to NewUserActivity
+                startActivity(new Intent(getApplicationContext(), NewUserActivity.class));
+            }
+        });
+
+
+
     }
     private boolean validateLogin(String username, String password)
     {

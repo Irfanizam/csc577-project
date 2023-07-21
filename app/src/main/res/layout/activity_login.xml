@@ -48,6 +48,16 @@
             android:text="Don't have an account?"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="addNewUser"
+            android:text="Register"/>
+<!--            style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+
     </LinearLayout>
 
     <ProgressBar

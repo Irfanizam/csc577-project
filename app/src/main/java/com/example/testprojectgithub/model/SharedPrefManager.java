@@ -53,12 +53,20 @@ public class SharedPrefManager
     public User getUser()
     {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        User user = new User();
-        user.setId(sharedPreferences.getInt(KEY_ID, -1));
-        user.setUsername(sharedPreferences.getString(KEY_USERNAME, null));
-        user.setEmail(sharedPreferences.getString(KEY_EMAIL, null));
-        user.setToken(sharedPreferences.getString(KEY_TOKEN, null));
-        user.setRole(sharedPreferences.getString(KEY_ROLE, null));
+//        User user = new User();
+//        user.setId(sharedPreferences.getInt(KEY_ID, -1));
+//        user.setUsername(sharedPreferences.getString(KEY_USERNAME, null));
+//        user.setEmail(sharedPreferences.getString(KEY_EMAIL, null));
+//        user.setToken(sharedPreferences.getString(KEY_TOKEN, null));
+//        user.setRole(sharedPreferences.getString(KEY_ROLE, null));
+
+        int id = sharedPreferences.getInt(KEY_ID, -1);
+        String username = sharedPreferences.getString(KEY_USERNAME, null);
+        String email = sharedPreferences.getString(KEY_EMAIL, null);
+        String token = sharedPreferences.getString(KEY_TOKEN, null);
+        String role = sharedPreferences.getString(KEY_ROLE, null);
+
+        User user = new User(id, email, username, "", token, "", role, 1,"");
 
         return user;
     }

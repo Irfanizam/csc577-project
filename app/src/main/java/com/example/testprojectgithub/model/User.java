@@ -1,5 +1,6 @@
 package com.example.testprojectgithub.model;
 
+
 public class User
 {
     private int id;
@@ -11,6 +12,25 @@ public class User
     private String role;
     private int is_active;
     private String secret;
+
+//    public User(int i, String email, String username, String password, String s, String s1, String s2, int i1, String s3) {
+//    }
+public User(int id, String email, String username, String password, String token, String lease, String role, int is_active, String secret) {
+    this.id = id;
+    this.email = email;
+    this.username = username;
+    this.password = password;
+    this.token = token;
+    this.lease = lease;
+    this.role = role;
+    this.is_active = is_active;
+    this.secret = secret;
+}
+
+
+    public User() {
+
+    }
 
     public int getId() {
         return id;
