@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.testprojectgithub.model.SharedPrefManager;
 import com.example.testprojectgithub.model.User;
+import com.example.testprojectgithub.user.ViewGameListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,8 +56,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // forward user to GameListActivity
-                Intent intent = new Intent(context, GameListActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(context, GameListActivity.class);
+//                startActivity(intent);
+                if(user.getRole().equalsIgnoreCase("admin")){
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), GameListActivity.class));
+                }
+                else if (user.getRole().equalsIgnoreCase("user")){
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), ViewGameListActivity.class));
+                }
             }
         });
     }

@@ -13,13 +13,13 @@
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
         android:text="Add New User"
-        android:textSize="32dip" />
+        android:textSize="32sp" />
 
     <TextView
         android:layout_columnSpan="2"
         android:layout_gravity="center"
         android:text="Enter user information"
-        android:textSize="16dip" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -41,7 +41,8 @@
                 android:id="@+id/txtUsername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75" />
+                android:layout_weight="0.75"
+                android:inputType="text"/>
         </LinearLayout>
 
 <!--        <LinearLayout-->
@@ -79,7 +80,8 @@
                 android:id="@+id/txtPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75" />
+                android:layout_weight="0.75"
+                android:inputType="text"/>
         </LinearLayout>
 
 
@@ -99,11 +101,11 @@
                 android:id="@+id/spRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
                 android:layout_marginTop="10dp"
-                android:entries="@array/role"/>
+                android:layout_weight="0.75"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/role" />
         </LinearLayout>
-
 
 
         <LinearLayout

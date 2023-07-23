@@ -40,6 +40,9 @@
         <activity
             android:name=".NewUserActivity"
             android:exported="true" />
+        <activity android:name=".user.ViewGameListActivity"
+            android:exported="true"/>
+        
     </application>
 
 </manifest>

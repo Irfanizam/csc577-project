@@ -50,6 +50,7 @@ public class NewUserActivity extends AppCompatActivity {
         String password = txtPassword.getText().toString();
         String role = spRole.getSelectedItem().toString();
 
+        System.out.println("Selected role is "+ role);
         //create a user
         User u = new User(0,username, username, password, "", "", role, 1, "");
 
@@ -59,8 +60,9 @@ public class NewUserActivity extends AppCompatActivity {
         //send request to add new user to REST API
         UserService userService = ApiUtils.getUserService();
         Call<User> call = userService.addNewUser(user.getToken(),u);  //Recheck here
-        System.out.println("Username" + u.getUsername());
-        System.out.println("Password" +u.getPassword());
+        System.out.println("Username : " + u.getUsername());
+        System.out.println("Password  :" +u.getPassword());
+        System.out.println("Role : " + u.getRole());
         //execute
         call.enqueue(new Callback<User>() {
 

@@ -46,10 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
-
-
-
-
         userService = ApiUtils.getUserService();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -64,17 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-        //For add new user
-//        btnRegister.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                //forward user to NewUserActivity
-//                Intent intent = new Intent(LoginActivity.this, NewUserActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,11 +98,21 @@ public class LoginActivity extends AppCompatActivity {
                     User user = (User) response.body();
                     if(user.getToken() !=null)
                     {
-                        displayToast("Login Successful");
-                        displayToast("Token: " + user.getToken());
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        if(user.getRole().equalsIgnoreCase("admin")){
+                            displayToast("Login Successful");
+                            displayToast("Token: " + user.getToken());
+                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        }
+                        else if (user.getRole().equalsIgnoreCase("user")){
+                            displayToast("Login Successful");
+                            displayToast("Token: " + user.getToken());
+                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        }
+
                     }
                     else if (response.errorBody() != null)
                     {
