@@ -2,8 +2,6 @@ package com.example.testprojectgithub.remote;
 
 import com.example.testprojectgithub.model.DeleteResponse;
 import com.example.testprojectgithub.model.Game;
-import com.example.testprojectgithub.model.User;
-import com.example.testprojectgithub.model.UserGame;
 
 import java.util.List;
 
@@ -22,8 +20,8 @@ public interface GameService {
 
     @GET("api/game/{id}")
     Call<Game> getGame(@Header("api-key") String api_key, @Path("id") int id);
-    @GET("api/game/{id}")
-    Call<UserGame> getUserGame(@Header("api-key") String api_key, @Path("id") int id);
+//    @GET("api/game/{id}")
+//    Call<UserGame> getUserGame(@Header("api-key") String api_key, @Path("id") int id);
     /**
      * Add game by sending a single Game JSON
      * @return game object

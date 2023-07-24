@@ -1,12 +1,16 @@
 package com.example.testprojectgithub;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testprojectgithub.model.Game;
 import com.example.testprojectgithub.model.SharedPrefManager;
@@ -23,12 +27,12 @@ import retrofit2.Response;
 public class GameDetailActivity extends AppCompatActivity {
 
     GameService gameService;
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_detail);
-
+        context = this;
         // get game id sent by GameListActivity, -1 if not found
         Intent intent = getIntent();
         int id = intent.getIntExtra("game_id", -1);
@@ -55,6 +59,7 @@ public class GameDetailActivity extends AppCompatActivity {
                 TextView tvRating = findViewById(R.id.tvRating);
                 TextView tvReleaseDate = findViewById(R.id.tvReleaseDate);
 
+                RecyclerView recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
 
 
                 // set values
@@ -62,6 +67,19 @@ public class GameDetailActivity extends AppCompatActivity {
                 tvDescription.setText(game.getGameDescription());
                 tvRating.setText(game.getGameRating());
                 tvReleaseDate.setText(game.getReleaseDate());
+
+
+                // assign action to Game List button
+                Button btnCreateReview = findViewById(R.id.btnCreateReview);
+                btnCreateReview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // forward user to CreateReview
+                Intent intent = new Intent(context, CreateReviewActivity.class);
+                startActivity(intent);
+                    }
+                });
+
             }
 
             @Override

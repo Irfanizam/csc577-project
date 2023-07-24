@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.testprojectgithub.model.SharedPrefManager;
 import com.example.testprojectgithub.model.User;
-import com.example.testprojectgithub.user.ViewGameListActivity;
 
 public class MainActivity extends AppCompatActivity {
 

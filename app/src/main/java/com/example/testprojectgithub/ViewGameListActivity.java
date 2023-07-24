@@ -1,4 +1,4 @@
-package com.example.testprojectgithub.user;
+package com.example.testprojectgithub;
 
 import android.content.Context;
 import android.content.DialogInterface;
