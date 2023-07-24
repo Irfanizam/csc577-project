@@ -64,31 +64,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:textStyle="bold"
-                android:textSize="40dp"
+                android:layout_marginTop="50dp"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="@color/black"
                 android:text="Login"
-                android:layout_marginTop="50dp"/>
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="Username"
-                android:layout_gravity="center"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp"/>
+                android:paddingLeft="10sp" />
 
             <EditText
                 android:id="@+id/edtPassword"
@@ -99,7 +102,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingLeft="10sp" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -107,12 +111,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:textColor="#FFFFFF"
-                android:text="Login"
+                android:backgroundTint="#A8A6A1"
                 android:fontFamily="@font/poppins"
-                android:textStyle="bold"
+                android:text="Login"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp"
-                android:backgroundTint="#A8A6A1"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
