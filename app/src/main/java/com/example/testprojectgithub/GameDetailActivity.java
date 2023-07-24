@@ -66,7 +66,21 @@ public class GameDetailActivity extends AppCompatActivity {
                 tvDescription.setText(game.getGameDescription());
                 tvRating.setText(game.getGameRating());
                 tvReleaseDate.setText(game.getReleaseDate());
+                // assign action to Game List button
+                Button btnCreateReview = findViewById(R.id.btnCreateReview);
+                btnCreateReview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // forward user to CreateReview
+                        Intent intent = new Intent(GameDetailActivity.this, CreateReviewActivity.class);
+                        intent.putExtra("idGame", game.getIdGame());
+                        intent.putExtra("gameName",game.getGameName());
+
+                        startActivity(intent);
+                    }
+                });
             }
+
 
             @Override
             public void onFailure(Call<Game> call, Throwable t) {

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText edtUsername;
     EditText edtPassword;
-    Button btnLogin,btnRegister;
+    Button btnLogin, btnRegister;
     Context context;
 
     UserService userService;

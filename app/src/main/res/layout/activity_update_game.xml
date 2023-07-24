@@ -96,8 +96,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="addNewGame"
-                android:text="Add Game"
+                android:onClick="updateGame"
+                android:text="Update Game"
                 android:fontFamily="@font/poppins"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#A6A8A1"
