@@ -150,7 +150,7 @@ public class NewGameActivity extends AppCompatActivity {
 
                 // game added successfully?
                 Game addedGame = response.body();
-                if (addedGame != null) {
+                if (addedGame.getGameName() != null && addedGame.getGameRating() != null && addedGame.getGameDescription() != null) {
                     // display message
                     Toast.makeText(context,
                             addedGame.getGameName() + " added successfully.",
@@ -160,7 +160,7 @@ public class NewGameActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, GameListActivity.class);
                     startActivity(intent);
                     finish();
-                } else {
+                } else  {
                     displayAlert("Add New Game failed.");
                 }
             }
