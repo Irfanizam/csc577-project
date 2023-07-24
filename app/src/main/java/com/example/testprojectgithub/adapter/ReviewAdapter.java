@@ -1,5 +1,6 @@
 package com.example.testprojectgithub.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,25 +22,21 @@ import retrofit2.Response;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder> {
 
+
     private List<Review> reviews;
     private UserService userService;
-    private String apiKey;
-
-    public ReviewAdapter(List<Review> reviews, UserService userService, String apiKey) {
-        this.reviews = reviews;
-        this.userService = userService;
-        this.apiKey = apiKey;
-    }
 
 
+
+    @NonNull
     @Override
-    public ReviewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ReviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_review, parent, false);
         return new ReviewViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(ReviewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
         Review review = reviews.get(position);
         holder.bind(review);
     }
@@ -52,38 +49,30 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     public class ReviewViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textViewUsername;
-        private TextView textViewRating;
         private TextView textViewComment;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewUsername = itemView.findViewById(R.id.textViewUsername);
-            textViewRating = itemView.findViewById(R.id.textViewRating);
             textViewComment = itemView.findViewById(R.id.textViewComment);
         }
 
         public void bind(Review review) {
             String userId = String.valueOf(review.getUserId());
 
-
-            fetchUsername(apiKey, userId);
-
-            String ratingText = "Rating: " + review.getRating();
-            textViewRating.setText(ratingText);
             textViewComment.setText(review.getComment());
         }
 
-        private void fetchUsername(String apiKey, String userId) {
-
+        private void username(String apiKey, String userId) {
 
             Call<User> call = userService.getUser(apiKey, userId);
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful()) {
-                        User u = response.body();
-                        if (u != null) {
-                            String username = u.getUsername();
+                        User user = response.body();
+                        if (user != null) {
+                            String username = user.getUsername();
                             textViewUsername.setText(username);
                         }
                     }
@@ -97,4 +86,3 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         }
     }
 }
-

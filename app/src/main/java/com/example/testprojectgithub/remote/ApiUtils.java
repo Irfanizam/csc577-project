@@ -15,4 +15,9 @@ public class ApiUtils
     {
         return RetrofitClient.getClient(BASE_URL).create(GameService.class);
     }
+
+    public static ReviewService getReviewService()
+    {
+        return RetrofitClient.getClient(BASE_URL).create(ReviewService.class);
+    }
 }

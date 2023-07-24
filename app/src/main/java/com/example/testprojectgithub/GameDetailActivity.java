@@ -76,6 +76,9 @@ public class GameDetailActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         // forward user to CreateReview
                 Intent intent = new Intent(context, CreateReviewActivity.class);
+                intent.putExtra("idGame", game.getIdGame());
+                intent.putExtra("gameName",game.getGameName());
+
                 startActivity(intent);
                     }
                 });
@@ -89,4 +92,6 @@ public class GameDetailActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
