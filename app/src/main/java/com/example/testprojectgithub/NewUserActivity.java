@@ -41,7 +41,7 @@ public class NewUserActivity extends AppCompatActivity {
         //get view objects references
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
-        spRole = findViewById(R.id.spRole);
+
     }
 
     public void addNewUser(View view){

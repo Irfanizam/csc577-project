@@ -18,7 +18,8 @@
             android:exported="false" />
         <activity
             android:name=".UpdateGameActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -33,19 +34,29 @@
             android:exported="true" />
         <activity
             android:name=".GameListActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".GameDetailActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".GameListActivity"/>
         <activity
             android:name=".NewGameActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".GameListActivity"/>
         <activity
             android:name=".NewUserActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".ViewGameListActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
+
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

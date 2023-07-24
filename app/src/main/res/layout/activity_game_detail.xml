@@ -1,100 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:useDefaultMargins="true"
-    android:alignmentMode="alignBounds"
-    android:columnOrderPreserved="false"
-    android:columnCount="2">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#A8A6A1">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center_horizontal"
-        android:text="Title"
-        android:textSize="32dip" />
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center"
-        android:text="Description"
-        android:textSize="16dip" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="20dp"
+            android:background="@drawable/edit_text_background">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:text="Rating:" />
+                android:text="Game Detail"
+                android:textSize="30dp"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/tvName"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:layout_gravity="start|center_horizontal"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/tvDescription"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginTop="20dp"
+                android:inputType="textMultiLine"
+                android:layout_gravity="start|center_horizontal"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:id="@+id/tvRating"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:text="Rating" />
-        </LinearLayout>
+                android:background="@drawable/edit_text_background"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:layout_gravity="start|center_horizontal"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:text="Release Date:" />
 
             <TextView
                 android:id="@+id/tvReleaseDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:text="Release Date" />
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:text="Release Date: YYYY-MM-DD"
+                android:fontFamily="@font/poppins"
+                android:background="@drawable/edit_text_background"
+                android:layout_gravity="start|center_horizontal"
+                android:textColor="#A6A8A1"
+                android:textStyle="bold"/>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnCreateReview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Create Review"
-                android:textSize="12sp" />
-        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tvReviewsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Reviews:"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewReviews"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_review" />
-
-    </LinearLayout>
-
-</GridLayout>
+</ScrollView>
