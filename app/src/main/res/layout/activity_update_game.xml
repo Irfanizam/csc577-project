@@ -70,28 +70,28 @@
                 android:textStyle="bold"/>
 
 
-            <TextView
-                android:id="@+id/tvReleaseDate"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:padding="16dp"
-                android:text="Release Date: YYYY-MM-DD"
-                android:fontFamily="@font/poppins"
-                android:background="@drawable/edit_text_background"
-                android:layout_gravity="start|center_horizontal"
-                android:textColor="#A6A8A1" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvReleaseDate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:padding="16dp"-->
+<!--                android:text="Release Date: YYYY-MM-DD"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:background="@drawable/edit_text_background"-->
+<!--                android:layout_gravity="start|center_horizontal"-->
+<!--                android:textColor="#A6A8A1" />-->
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_weight="0.35"
-                android:onClick="showDatePickerDialog"
-                android:text="Pick Date"
-                android:fontFamily="@font/poppins"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#A6A8A1"
-                android:textStyle="bold"/>
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_weight="0.35"-->
+<!--                android:onClick="showDatePickerDialog"-->
+<!--                android:text="Pick Date"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:backgroundTint="#A6A8A1"-->
+<!--                android:textStyle="bold"/>-->
 
             <Button
                 android:layout_width="match_parent"
